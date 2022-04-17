@@ -1566,7 +1566,7 @@ int key3 - The third key that needs to be pressed for this bind, or zero if not 
 	<KeyWord name="onVehicleRespawn(vehicle){
 	
 }" func="yes"/>
-	<KeyWord name="onPlayerChat(player,message)){
+	<KeyWord name="onPlayerChat(player,message){
 	
 }" func="yes"/>
 	<KeyWord name="onPlayerPM(player,target,text){
