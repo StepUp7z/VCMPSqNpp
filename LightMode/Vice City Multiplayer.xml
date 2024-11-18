@@ -1,0 +1,1743 @@
+<!--Reference: Functions.cpp https://bitbucket.org/stormeus/0.4-squirrel/src/master/ -->
+<?xml version="1.0" encoding="UTF-8" ?>
+<NotepadPlus>
+	<AutoComplete language="Vice City Multiplayer">
+	<Environment ignoreCase="no" startFunc="(" stopFunc=")" paramSeparator="," terminal=";" additionalWordChar=""/>
+	<KeyWord name="ClientMessage" func="yes">
+		<Overload retVal="null" descr="This function will send a coloured message to a player" >
+				<Param name="string message" />
+				<Param name="CPlayer player" />
+				<Param name="int red" />
+				<Param name="int green" />
+				<Param name="int blue" />
+		</Overload>
+		<Overload retVal="null" descr="This function will send a coloured message (with alpha) to a player" >
+				<Param name="string message" />
+				<Param name="CPlayer player" />
+				<Param name="int red" />
+				<Param name="int green" />
+				<Param name="int blue" />
+				<Param name="int alpha" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="ClientMessageToAll" func="yes">
+		<Overload retVal="null" descr="This function will send a coloured message to every player in the server." >
+				<Param name="string message" />
+				<Param name="int red" />
+				<Param name="int green" />
+				<Param name="int blue" />
+		</Overload>
+		<Overload retVal="null" descr="This function will send a coloured message (with alpha) to every player in the server." >
+				<Param name="string message" />
+				<Param name="int red" />
+				<Param name="int green" />
+				<Param name="int blue" />
+				<Param name="int alpha" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="Announce" func="yes">
+		<Overload retVal="null" descr="This function will send a big message on the screen to a player." >
+				<Param name="string message" />
+				<Param name="CPlayer player" />
+				<Param name="int type" />
+		</Overload>
+		<Overload retVal="null" descr="This function will send a big message on the screen to a player. type=1" >
+				<Param name="string message" />
+				<Param name="CPlayer player" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="AnnounceAll" func="yes">
+		<Overload retVal="null" descr="This function will send a big message on the screen to every player." >
+				<Param name="string message" />
+				<Param name="int type" />
+		</Overload>
+		<Overload retVal="null" descr="This function will send a big message on the screen to every player. type=1" >
+				<Param name="string message" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="ShutdownServer" func="yes">
+		<Overload retVal="null" descr="This function shut down the server." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetServerName" func="yes">
+		<Overload retVal="null" descr="This function will set the server name." >
+			<Param name="string name" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetMaxPlayers" func="yes">
+		<Overload retVal="null" descr="This function will set the max players limit." >
+			<Param name="int newmaxplayers" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetPassword" func="yes">
+		<Overload retVal="null" descr="This function will set the server password." >
+			<Param name="string password" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetGameModeName" func="yes">
+		<Overload retVal="null" descr="This function will set the gamemode name to be shown in the client browser." >
+			<Param name="string gamemodename" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetTimeRate" func="yes">
+		<Overload retVal="null" descr="This function will set the timerate of the game." >
+			<Param name="int/float timerate" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetHour" func="yes">
+		<Overload retVal="null" descr="This function will set the game hour." >
+			<Param name="int hour" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetMinute" func="yes">
+		<Overload retVal="null" descr="This function sets the game minutes." >
+			<Param name="int minute" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetTime" func="yes">
+		<Overload retVal="null" descr="The function will set the game time
+		int hour - The hour of the game (from 00 to 23)
+int minute - The minute of the game (from 00 to 59)" >
+			<Param name="int hour" />
+			<Param name="int minute" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetWeather" func="yes">
+		<Overload retVal="null" descr="This function will set the weather of the game.
+		int weather - The weather id to be set" >
+			<Param name="int weather" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetGravity" func="yes">
+		<Overload retVal="null" descr="This function will set the gravity of the game.
+		float gravity - The gravity of the game (default is 0.008)" >
+			<Param name="int/float gravity" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetGamespeed" func="yes">
+		<Overload retVal="null" descr="This function will set the speed of the game.
+		float speed - The speed of the game (default is 1)" >
+			<Param name="int/float gamespeed" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetWaterLevel" func="yes">
+		<Overload retVal="null" descr="This function will set the water level of the game.
+		float waterlevel - The water level of the game (default is 6)" >
+			<Param name="int/float waterlevel" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetMaxHeight" func="yes">
+		<Overload retVal="null" descr="This function will set the maximum height.
+		float height - The maximum height" >
+			<Param name="int/float height" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetFallTimer" func="yes">
+		<Overload retVal="null" descr="" >
+			<Param name="int delay" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetServerName" func="yes">
+		<Overload retVal="string" descr="This function will get the server name." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetMaxPlayers" func="yes">
+		<Overload retVal="int" descr="This function will get max players limit." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetPassword" func="yes">
+		<Overload retVal="string" descr="This function will get the server password." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetGameModeName" func="yes">
+		<Overload retVal="string" descr="This function will get the game mode name shown in the client browser." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetTimeRate" func="yes">
+		<Overload retVal="number" descr="This function will get the timerate of the game." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetHour" func="yes">
+		<Overload retVal="int" descr="This function will get the hour of the game." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetMinute" func="yes">
+		<Overload retVal="int" descr="This function will get the minute of the game." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetWeather" func="yes">
+		<Overload retVal="int" descr="This function will get the weather ID of the game." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetGravity" func="yes">
+		<Overload retVal="float" descr="This function will get the gravity of the game." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetGamespeed" func="yes">
+		<Overload retVal="float" descr="This function will get the speed of the game.">
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetWaterLevel" func="yes">
+		<Overload retVal="float" descr="This function will get the water level of the game." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetMaxHeight" func="yes">
+		<Overload retVal="float" descr="This function will get the max height." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetFallTimer" func="yes">
+		<Overload retVal="int" descr="" >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetSyncFrameLimiter" func="yes">
+		<Overload retVal="null" descr="This function will toggle the frame limiter sync.
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetFrameLimiter" func="yes">
+		<Overload retVal="null" descr="This function will toggle the frame limiter 
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetTaxiBoostJump" func="yes">
+		<Overload retVal="null" descr="This function will toggle the taxi boost jump ability.
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetDriveOnWater" func="yes">
+		<Overload retVal="null" descr="This function will toggle driving on water.
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetSyncFrameLimiter" func="yes">
+		<Overload retVal="null" descr="" >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetFastSwitch" func="yes">
+		<Overload retVal="null" descr="This function will toggle the frame limiter sync.
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetFriendlyFire" func="yes">
+		<Overload retVal="null" descr="This function will toggle friendly fire ability.
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetDrivebyEnabled" func="yes">
+		<Overload retVal="null" descr="This function will toggle the driveby ability.
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetPerfectHandling" func="yes">
+		<Overload retVal="null" descr="This function will toggle the perfect handling ability.
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetFlyingCars" func="yes">
+		<Overload retVal="null" descr="This function will toggle the flying cars ability.
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetJumpSwitch" func="yes">
+		<Overload retVal="null" descr="This function will toggle the jump switch ability.
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetShowOnRadar" func="yes">
+		<Overload retVal="null" descr="This function will toggle the ability to see other players on the radar.
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetShowOnlyTeamMarkers" func="yes">
+		<Overload retVal="null" descr="This function will set the player's tag visible to only his/her team.
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetStuntBike" func="yes">
+		<Overload retVal="null" descr="This function will toggle the stunt bike ability.
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetShootInAir" func="yes">
+		<Overload retVal="null" descr="This function will toggle the shoot in air ability.
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetShowNametags" func="yes">
+		<Overload retVal="null" descr="This function will toggle the player nametags on or off.
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetJoinMessages" func="yes">
+		<Overload retVal="null" descr="This function will toggle the join messages on or off.
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetDeathMessages" func="yes">
+		<Overload retVal="null" descr="This function will toggle death messages on or off.
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetWallglitch" func="yes">
+		<Overload retVal="null" descr="This will enable/disable wall glitch
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetBackfaceCullingDisabled" func="yes">
+		<Overload retVal="null" descr="
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetHeliBladeDamageDisabled" func="yes">
+		<Overload retVal="null" descr="
+		bool toggle - true or false." >
+			<Param name="bool toggle" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetSyncFrameLimiter" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the frame limiter sync ability." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetFrameLimiter" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the frame limiter changing ability." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetTaxiBoostJump" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the taxi boost jump ability." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetDriveOnWater" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the drive on water ability." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetFastSwitch" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the fast switch ability." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetFriendlyFire" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the friendly fire ability." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetDrivebyEnabled" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the driveby ability." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetPerfectHandling" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the perfect handling ability." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetFlyingCars" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the flying cars ability." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetJumpSwitch" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the jump switch ability." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetShowOnRadar" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the players' radarblips." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetShowOnlyTeamMarkers" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of showing markers to only team members." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetStuntBike" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the stunt bike ability." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetShootInAir" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the shoot in air ability." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetShowNametags" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of players' nametags." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetJoinMessages" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the join messages." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetDeathMessages" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the death messages." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetWallglitch" func="yes">
+		<Overload retVal="bool" descr="This function will return the status of wall glitch" >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetBackfaceCullingDisabled" func="yes">
+		<Overload retVal="bool" descr="" >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetHeliBladeDamageDisabled" func="yes">
+		<Overload retVal="bool" descr="" >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="CreateRadioStream" func="yes">
+		<Overload retVal="null" descr="This function will add a online radio to vehicle's radio.
+		int radioId - The radio id.
+string radioName - The radio name.
+string radioURL - The online radio URL.
+bool canSelect - Show the radio stream on vehicle's radio list." >
+				<Param name="int radioId" />
+				<Param name="string radioName" />
+				<Param name="string radioURL" />
+				<Param name="bool canSelect" />
+		</Overload>
+		<Overload retVal="int" descr="This function will add a online radio to vehicle's radio.
+		string radioName - The radio name.
+string radioURL - The online radio URL.
+bool canSelect - Show the radio stream on vehicle's radio list." >
+				<Param name="string radioName" />
+				<Param name="string radioURL" />
+				<Param name="bool canSelect" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="DestroyRadioStream" func="yes">
+		<Overload retVal="null" descr="This function will destroy a radio stream.
+		int radioId - The radio ID." >
+				<Param name="int radioId" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="CreateMarker" func="yes">
+		<Overload retVal="int" descr="This function will create a map icon on the radar.
+		int world - The world ID
+Vector pos - The position of the marker to be created
+int scale - The marker's size
+RGBA color - The marker's color
+int SpriteId - The ID of custom map icon" >
+				<Param name="int world" />
+				<Param name="Vector pos" />
+				<Param name="int scale" />
+				<Param name="RGBA color" />
+				<Param name="int nSpriteId" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="DestroyMarker" func="yes">
+		<Overload retVal="null" descr="This function will destroy a created Marker.
+		int markerId - The ID of the created Marker, which is the value returned by CreateMarker" >
+				<Param name="int markerId" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="CreateExplosion" func="yes">
+		<Overload retVal="null" descr="This function will create an explosion at the given location.
+		int world - The world ID
+int type - The Explosion Types
+Vector pos - The position of the explosion to be created
+int playerCaused - the ID of the player to blame the explosion on, or -1 for no player
+bool onGround - whether explosion happens on ground" >
+				<Param name="int world" />
+				<Param name="int type" />
+				<Param name="Vector pos" />
+				<Param name="int playerCaused" />
+				<Param name="bool onGround" />
+		</Overload>
+		<Overload retVal="null" descr="This function will create an explosion at the given location (x, y, z)
+		int world - The world ID
+int type - The Explosion Types
+float x - The x co-ordinate of the position of the explosion to be created
+float y - The y co-ordinate of the position of the explosion
+float z - The z co-ordinate of the position of the explosion
+int playerCaused - the ID of the player to blame the explosion on, or -1 for no player
+bool onGround - whether explosion happens on ground" >
+				<Param name="int world" />
+				<Param name="int type" />
+				<Param name="float x" />
+				<Param name="float y" />
+				<Param name="float z" />
+				<Param name="int playerCaused" />
+				<Param name="bool onGround" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="PlaySound" func="yes">
+		<Overload retVal="null" descr="This function will play a sound at a certain position.
+		int world - The world ID
+int sound - The sound ID
+Vector pos - The position of the sound to be played at" >
+				<Param name="int world" />
+				<Param name="int sound" />
+				<Param name="Vector pos" />
+		</Overload>
+		<Overload retVal="null" descr="This function will play a sound at a certain position (x, y, z)
+		int world - The world ID
+int sound - The sound ID
+float x - The x co-ordinate of the position of the sound to be played at
+float y - The y co-ordinate of the position of the sound to be played at
+float z - The z co-ordinate of the position of the sound to be played at" >
+				<Param name="int world" />
+				<Param name="int sound" />
+				<Param name="float x" />
+				<Param name="float y" />
+				<Param name="float z" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="PlaySoundForPlayer" func="yes">
+		<Overload retVal="null" descr="" >
+				<Param name="CPlayer player" />
+				<Param name="int sound" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="PlaySoundForWorld" func="yes">
+		<Overload retVal="null" descr="This Function will Play Sounds for any specific World
+		int world - The world ID.
+int sound - The sound ID." >
+				<Param name="int world" />
+				<Param name="int sound" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetUseClasses" func="yes">
+		<Overload retVal="null" descr="This function will enable/disable use of classes
+		bool toUse - true or false" >
+				<Param name="bool toUse" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="UsingClasses" func="yes">
+		<Overload retVal="bool" descr="" >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="AddClass" func="yes">
+		<Overload retVal="null" descr="Adds a class to select.
+		int team - team id
+RGB color - Color
+int skin - Skin id
+Vector spawnPos - Position of the player when spawned
+float spawnAngle - Angle of the player when spawned
+int wep1 - First weapon of the player
+int ammo1 - Ammo of the first weapon
+int wep2 - Second weapon of the player
+int ammo2 - Ammo of the second weapon
+int wep3 - Third weapon of the player
+int ammo3 - Ammo of the third weapon" >
+				<Param name="int team" />
+				<Param name="RGB color" />
+				<Param name="int skin" />
+				<Param name="Vector spawnPos" />
+				<Param name="float spawnAngle" />
+				<Param name="int wep1" />
+				<Param name="int ammo1" />
+				<Param name="int wep2" />
+				<Param name="int ammo2" />
+				<Param name="int wep3" />
+				<Param name="int ammo3" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetSpawnPlayerPos" func="yes">
+		<Overload retVal="null" descr="" >
+				<Param name="Vector pos" />
+		</Overload>
+		<Overload retVal="null" descr="" >
+				<Param name="float x" />
+				<Param name="float y" />
+				<Param name="float z" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetSpawnCameraPos" func="yes">
+		<Overload retVal="null" descr="This function set the camera pos.
+		Vector pos - The position of the camera." >
+				<Param name="Vector pos" />
+		</Overload>
+		<Overload retVal="null" descr="This function set the camera position(x, y, z).
+		float x - x coordinate of the position of the camera
+float y - y coordinate of the position of the camera
+float z- z coordinate of the position of the camera" >
+				<Param name="float x" />
+				<Param name="float y" />
+				<Param name="float z" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetSpawnCameraLook" func="yes">
+		<Overload retVal="null" descr="" >
+				<Param name="Vector pos" />
+		</Overload>
+		<Overload retVal="null" descr="" >
+				<Param name="float x" />
+				<Param name="float y" />
+				<Param name="float z" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="BanIP" func="yes">
+		<Overload retVal="null" descr="This function will ban an IP from the server.
+		string ip - This is the IP address to be banned" >
+				<Param name="string ip" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="UnbanIP" func="yes">
+		<Overload retVal="null" descr="This function will unban an IP from the server.
+		string ip - The IP to be unbanned" >
+				<Param name="string ip" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="IsIPBanned" func="yes">
+		<Overload retVal="bool" descr="This function will check if an IP is banned from the server.
+		string ip - The IP to be checked" >
+				<Param name="string ip" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetPlayerIDFromName" func="yes">
+		<Overload retVal="int" descr="" >
+				<Param name="string name" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="IsWorldCompatibleWithPlayer" func="yes">
+		<Overload retVal="bool" descr="" >
+				<Param name="CPlayer player" />
+				<Param name="int world" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="CreateCheckpoint" func="yes">
+		<Overload retVal="CCheckpoint" descr="This function creates a checkpoint. In racing, checkpoints are used.
+		CPlayer player| null  - The player to stream this checkpoint to. If the variable is null, it will be shown to everyone
+int world - The world id
+bool isSphere - 'true' for is Sphere and 'false' for not(cylinder)
+Vector pos - The checkpoint position
+ARGB color - The checkpoint color
+float radius - The radius of the checkoint" >
+				<Param name="CPlayer player" />
+				<Param name="int world" />
+				<Param name="bool isSphere" />
+				<Param name="Vector pos" />
+				<Param name="ARGB color" />
+				<Param name="float radius" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="CreateVehicle" func="yes">
+		<Overload retVal="CVehicle" descr="This function will create a vehicle.
+		int model - The model ID of the vehicle.
+Vector pos - The position of the vehicle.
+float angle - The rotation angle of the vehicle.
+int col1 - The Color1 of the vehicle.
+int col2 - The Color2 of the vehicle." >
+				<Param name="int model" />
+				<Param name="Vector pos" />
+				<Param name="float angle" />
+				<Param name="int col1" />
+				<Param name="int col2" />
+		</Overload>
+		<Overload retVal="CVehicle" descr="This function will create a vehicle( in a world )
+		int model - The model ID of the vehicle.
+int world - The world of the vehicle.
+Vector pos - The position of the vehicle.
+float angle - The rotation angle of the vehicle.
+int col1 - The Color1 of the vehicle.
+int col2 - The Color2 of the vehicle." >
+				<Param name="int model" />
+				<Param name="int world" />
+				<Param name="Vector pos" />
+				<Param name="float angle" />
+				<Param name="int col1" />
+				<Param name="int col2" />
+		</Overload>
+		<Overload retVal="CVehicle" descr="This function will create a vehicle( in a world and co-ordinates x, y, z )
+		int model - The model ID of the vehicle.
+int world - The world of the vehicle.
+float x - The x position of the vehicle.
+float y - The y position of the vehicle.
+float z - The z position of the vehicle.
+float angle - The rotation angle of the vehicle.
+int col1 - The Color1 of the vehicle.
+int col2 - The Color2 of the vehicle." >
+				<Param name="int model" />
+				<Param name="int world" />
+				<Param name="float x" />
+				<Param name="float y" />
+				<Param name="float z" />
+				<Param name="float angle" />
+				<Param name="int col1" />
+				<Param name="int col2" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="CreatePickup" func="yes">
+		<Overload retVal="CPickup" descr="This function will create a pickup.
+		int model - The model of pickup.
+Vector pos - The pos of pickup." >
+				<Param name="int model" />
+				<Param name="Vector pos" />
+		</Overload>
+		<Overload retVal="CPickup" descr="This function will create a pickup ( world, quantity, alpha , isAuto )
+		int model - The model of pickup.
+int world - The world of pickup.
+int quantity - The quantity of pickup.
+Vector pos - The pos of pickup.
+int alpha - The alpha of pickup.
+bool isAuto - (Is auto respawn?)" >
+				<Param name="int model" />
+				<Param name="int world" />
+				<Param name="int quantity" />
+				<Param name="Vector pos" />
+				<Param name="int alpha" />
+				<Param name="bool isAuto" />
+		</Overload>
+		<Overload retVal="CPickup" descr="This function will create a pickup in a world with location given as x, y, z
+		int model - The model of pickup.
+int world - The world of pickup.
+int quantity - The quantity of pickup.
+float x - The x pos of pickup.
+float y - The y pos of pickup.
+float z - The z pos of pickup.
+int alpha - The alpha of pickup.
+bool isAuto - (Is auto respawn?)" >
+				<Param name="int model" />
+				<Param name="int world" />
+				<Param name="int quantity" />
+				<Param name="float x" />
+				<Param name="float y" />
+				<Param name="float z" />
+				<Param name="int alpha" />
+				<Param name="bool isAuto" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="CreateObject" func="yes">
+		<Overload retVal="CObject" descr="This function will create an object.
+		int model - The object model id
+int world - The world id
+Vector pos - The object pos
+int alpha - The object alpha" >
+				<Param name="int model" />
+				<Param name="int world" />
+				<Param name="Vector pos" />
+				<Param name="int alpha" />
+		</Overload>
+		<Overload retVal="CObject" descr="This function will create an object at (x, y, z)
+		int model - The object model id.
+int world - The world id.
+float x - The x pos of the object.
+float y - The y pos of the object.
+float z - The z pos of the object.
+int alpha - The object alpha." >
+				<Param name="int model" />
+				<Param name="int world" />
+				<Param name="float x" />
+				<Param name="float y" />
+				<Param name="float z" />
+				<Param name="int alpha" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="FindPickup" func="yes">
+		<Overload retVal="CPickup/null" descr="This function finds a pickup with given ID and returns its instance.
+		int id - The ID of the pickup to find" >
+				<Param name="int id" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="FindObject" func="yes">
+		<Overload retVal="CObject/null" descr="This function finds an object with g ID and returns its instance
+		int id - The ID of the object to find
+		Returns null if the object with the specified id does not exist." >
+				<Param name="int id" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="FindVehicle" func="yes">
+		<Overload retVal="CVehicle/null" descr="This function retrieve a vehicle object from vehicle's ID.
+		integer id - The vehicle's ID." >
+				<Param name="int id" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="FindCheckpoint" func="yes">
+		<Overload retVal="CCheckpoint/null" descr="This function retrieve a checkpoint from the given id
+		int id - The ID of the Checkpoint to find
+		Returns null if checkpoint with the specified id does not exist." >
+				<Param name="int id" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetWorldBounds" func="yes">
+		<Overload retVal="null" descr="This function will set the world bounds of the server.
+		float maxX - The X max
+float minX - The X min
+float maxY - The Y max
+float minY - The Y min
+Example:  SetWorldBounds(5000.0, -5000.0, 5000.0, -5000.0);//Default World Bounds; Use this func on onScriptLoad" >
+				<Param name="float maxX" />
+				<Param name="float minX" />
+				<Param name="float maxY" />
+				<Param name="float minY" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetWorldBounds" func="yes">
+		<Overload retVal="Bounds" descr="This function will get the world bounds of the server.
+		Return value: Bounds worldbounds - the bounds" >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetWastedSettings" func="yes">
+		<Overload retVal="null" descr="This function will set the appearence of the wasted screen when a player dies.
+		int deathTime - The death time
+int fadeTime - The fade time
+float fadeInSpeed - The fade in speed
+float fadeOutSpeed - The fade out speed
+RGB colour - The colour
+int corpseFadeDelay
+int corpseFadeTime
+Example: SetWastedSettings( 0, 0, 0, 0, RGB(0,0,0), 0, 0)" >
+				<Param name="int deathTime" />
+				<Param name="int fadeTime" />
+				<Param name="float fadeInSpeed" />
+				<Param name="float fadeOutSpeed" />
+				<Param name="RGB color" />
+				<Param name="int corpseFadeDelay" />
+				<Param name="int corpseFadeTime" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetWastedSettings" func="yes">
+		<Overload retVal="WastedSettings" descr="This function will return the appearence of the wasted screen when a player dies.
+		Return value: WastedSettings wastedSettings - The wasted settings." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetKillDelay" func="yes">
+		<Overload retVal="null" descr="This function will set the /kill command delay.
+		int delay - The delay." >
+			<Param name="int delay" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetKillDelay" func="yes">
+		<Overload retVal="int" descr="This function will return the /kill command delay." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="RawHideMapObject" func="yes">
+		<Overload retVal="null" descr="This function hides a map object already present in game.
+		integer nModelId - The ModelID of object you want to hide from game
+int x - The object pos x
+int y - The object pos y
+int z - The object pos z
+See also: HideMapObject" >
+			<Param name="int nModelId" />
+			<Param name="int x" />
+			<Param name="int y" />
+			<Param name="int z" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="HideMapObject" func="yes">
+		<Overload retVal="null" descr="This function hides a map object already present in game.
+		integer nModelId - The ModelID of object you want to hide from game
+float x - The object pos x
+float y - The object pos y
+float z - The object pos z
+		Example: HideMapObject(441, -631.9671021, -465.7115479, 9.247497559)" >
+			<Param name="int nModelId" />
+			<Param name="float x" />
+			<Param name="float y" />
+			<Param name="float z" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="ShowMapObject" func="yes">
+		<Overload retVal="null" descr="This function will show an object on the map if the map was hidden using HideMapObject or RawHideMapObject
+		int nModelId - The Model ID of the object, must be an integer.
+float VectorX - The vector x of the hidden object. Should be float.
+float VectorY - The vector y of the hidden object. Should be float.
+float VectorZ - The vector z of the hidden object. Should be float." >
+			<Param name="int nModelId" />
+			<Param name="float x" />
+			<Param name="float y" />
+			<Param name="float z" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="ShowAllMapObjects" func="yes">
+		<Overload retVal="null" descr="This function shows all the hidden map objects." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="ForceAllSelect" func="yes">
+		<Overload retVal="null" descr="" >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="ResetAllVehicleHandling" func="yes">
+		<Overload retVal="null" descr="" >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="IsHandlingRuleSet" func="yes">
+		<Overload retVal="bool" descr="" >
+			<Param name="int model" />
+			<Param name="int rule" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetHandlingRule" func="yes">
+		<Overload retVal="null" descr="" >
+			<Param name="int model" />
+			<Param name="int rule" />
+			<Param name="float value" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetHandlingRule" func="yes">
+		<Overload retVal="float" descr="" >
+			<Param name="int model" />
+			<Param name="int rule" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="ResetHandlingRule" func="yes">
+		<Overload retVal="null" descr="" >
+			<Param name="int model" />
+			<Param name="int rule" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="ResetVehicleHandling" func="yes">
+		<Overload retVal="null" descr="" >
+			<Param name="int model" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetCinematicBorder" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the Cinematic Border of any specified player.
+		CPlayer player = Instance of the player.
+		Return value:bool toggled - true or false" >
+			<Param name="CPlayer player" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetGreenScanLines" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the Green Scan Lines of any specified player.
+		CPlayer player = Instance of the player.
+		Return value:bool toggled - true or false" >
+			<Param name="CPlayer player" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetWhiteScanLines" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the White Scan Lines of any specified player.
+		CPlayer player = Instance of the player.
+		Return value:bool toggled - true or false" >
+			<Param name="CPlayer player" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetCinematicBorder" func="yes">
+		<Overload retVal="null" descr="" >
+			<Param name="CPlayer player" />
+			<Param name="bool toEnable" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetGreenScanLines" func="yes">
+		<Overload retVal="null" descr="" >
+			<Param name="CPlayer player" />
+			<Param name="bool toEnable" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetWhiteScanLines" func="yes">
+		<Overload retVal="null" descr="" >
+			<Param name="CPlayer player" />
+			<Param name="bool toEnable" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="KickPlayer" func="yes">
+		<Overload retVal="null" descr="This function disconnects a client from the server, aka kick a player.
+		CPlayer player - the player you are going to kick." >
+			<Param name="CPlayer player" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="BanPlayer" func="yes">
+		<Overload retVal="null" descr="This function bans any specified player.
+		CPlayer player - the player you are going to ban." >
+			<Param name="CPlayer player" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="Message" func="yes">
+		<Overload retVal="null" descr="This function will send a simple message to everyone in the server.
+		string message - The message to send" >
+			<Param name="string message" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="MessagePlayer" func="yes">
+		<Overload retVal="null" descr="This function will send a simple message to the player specified.
+		string message - The message to send
+CPlayer player - The player to send the message to" >
+			<Param name="string message" />
+			<Param name="CPlayer player" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="MessageAllExcept" func="yes">
+		<Overload retVal="null" descr="This function will send a simple message to everyone but the player specified.
+		string message - The message to send
+CPlayer player - The player not to send the message to" >
+			<Param name="string message" />
+			<Param name="CPlayer player" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="PrivMessage" func="yes">
+		<Overload retVal="null" descr="This function will send a private message to the player specified.
+		CPlayer player - The player to send the message to
+string message - The message to send" >
+			<Param name="CPlayer player" />
+			<Param name="string message" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="PrivMessageAll" func="yes">
+		<Overload retVal="null" descr="This function will send a private message to everyone in the server.
+		string message - The message to send" >
+			<Param name="string message" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SendPlayerMessage" func="yes">
+		<Overload retVal="null" descr="This function will send a fake private message from one player to another.
+		CPlayer playerToFake - The player to send the message as
+Player playerTo - The player to send the message to
+string message - The message to send" >
+			<Param name="CPlayer playerToFake" />
+			<Param name="CPlayer playerTo" />
+			<Param name="string message" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetWeaponName" func="yes">
+		<Overload retVal="string" descr="
+		int weaponID - The ID of the weapon" >
+			<Param name="int weaponID" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetDistrictName" func="yes">
+		<Overload retVal="string" descr="This function will return the district name of a given position.
+		float x - The x coordinate
+float y - The y coordinate" >
+			<Param name="float x" />
+			<Param name="float y" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetSkinName" func="yes">
+		<Overload retVal="string" descr="This function will return the name of the given skin ID.
+		int skinId - The ID of the skin" >
+			<Param name="int skinId" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetWeaponID" func="yes">
+		<Overload retVal="int" descr="This function will get the weapon ID from it's name.
+		string name - The name of the weapon" >
+			<Param name="string name" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetSkinID" func="yes">
+		<Overload retVal="int" descr="The function will get the skin ID from it's name.
+		string name - Any string such as &quot;hilary&quot;, &quot;tommy&quot;, etc" >
+			<Param name="string name" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetTickCount" func="yes">
+		<Overload retVal="int" descr="This function will get the number of milliseconds that have elapsed since starting the server." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetWeaponDataValue" func="yes">
+		<Overload retVal="bool" descr="This function will edit the settings of a weapon. (damage, range, etc)
+		integer weaponID - model ID of weapon
+integer fieldID - field ID of data you want to edit 
+float value - value to be set" >
+			<Param name="int weaponID" />
+			<Param name="int fieldID" />
+			<Param name="float value" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetWeaponDataValue" func="yes">
+		<Overload retVal="float" descr="This function will return a data value of a weapon. (damage, range, etc)
+		int weaponID - model ID of weapon
+int fieldID - field ID of data you want to get" >
+			<Param name="int weaponID" />
+			<Param name="int fieldID" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="ResetWeaponDataValue" func="yes">
+		<Overload retVal="bool" descr="This function will reset the data value of a weapon. (range, damage, etc)
+		int weaponID - model ID of weapon
+int fieldID - field ID of data you want to reset" >
+			<Param name="int weaponID" />
+			<Param name="int fieldID" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="IsWeaponDataModified" func="yes">
+		<Overload retVal="bool" descr="This function will check a weapon for changed data values. (damage, range, etc)
+		int weaponID - model ID of weapon
+int fieldID - field ID of data you want to check for edits (" >
+			<Param name="int weaponID" />
+			<Param name="int fieldID" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="ResetWeaponData" func="yes">
+		<Overload retVal="bool" descr="This function will reset a weapon's settings to the defaults. (damage, range, etc)
+		int weaponID - model ID of weapon" >
+			<Param name="int weaponID" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="ResetAllWeaponData" func="yes">
+		<Overload retVal="null" descr="This function will reset settings(damage, range, etc) of all weapon to its defaults. " >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="DistanceFromPoint" func="yes">
+		<Overload retVal="float" descr="This function will get the distance from a point to another.
+		float x1 - The X coordinate
+float y1 - The Y coordinate
+float x2 - The X coordinate
+float y2 - The Y coordinate" >
+			<Param name="float x1" />
+			<Param name="float y1" />
+			<Param name="float x2" />
+			<Param name="float y2" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="ReloadScripts" func="yes">
+		<Overload retVal="null" descr="This function will reload the scripts." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetVehicleModelFromName" func="yes">
+		<Overload retVal="int" descr="This function will get the vehicle model from the name.
+		string name - The name of the vehicle" >
+			<Param name="string name" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetVehicleNameFromModel" func="yes">
+		<Overload retVal="string" descr="This function will get the vehicle name from the given model ID.
+		int model - The model ID of the vehicle" >
+			<Param name="int model" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="IsNum" func="yes">
+		<Overload retVal="bool" descr="Checks if a given string is a number" >
+			<Param name="string line" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetVehicleCount" func="yes">
+		<Overload retVal="int" descr="This function will return the count of vehicles." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetPickupCount" func="yes">
+		<Overload retVal="int" descr="This function will return the count of pickups." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetObjectCount" func="yes">
+		<Overload retVal="int" descr="This function will return the current object count." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetPlayers" func="yes">
+		<Overload retVal="int" descr="This function will return the count of players." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetFallEnabled" func="yes">
+		<Overload retVal="bool" descr="This function does not do anything. It only exists for compatibility reasons and will be removed in the future." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetFallEnabled" func="yes">
+		<Overload retVal="null" descr="This function does not do anything. It only exists for compatibility reasons and will be removed in the future." >
+			<Param name="bool unused" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetDeathmatchScoreboard" func="yes">
+		<Overload retVal="bool" descr="This function will return the current status of the DeathMatch ScoreBoard" >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetDeathmatchScoreboard" func="yes">
+		<Overload retVal="null" descr="" >
+			<Param name="bool isDmScoreboard" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetWeaponSync" func="yes">
+		<Overload retVal="bool" descr="This function does not do anything. It only exists for compatibility reasons and will be removed in the future." >
+			<Param name="int weaponID" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetWeaponSync" func="yes">
+		<Overload retVal="null" descr="This function does not do anything. It only exists for compatibility reasons and will be removed in the future." >
+			<Param name="int weaponID" />
+			<Param name="bool isSynced" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetWeatherLock" func="yes">
+		<Overload retVal="null" descr="This function is deprecated. Its use is discouraged as it may be removed in a future update." >
+			<Param name="bool isLocked" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetWeatherLock" func="yes">
+		<Overload retVal="bool" descr="This function is deprecated. Its use is discouraged as it may be removed in a future update." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetTime" func="yes">
+		<Overload retVal="int" descr="This function is deprecated. Its use is discouraged as it may be removed in a future update." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetFullTime" func="yes">
+		<Overload retVal="string" descr="This function is deprecated. Its use is discouraged as it may be removed in a future update." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="LoadModule" func="yes">
+		<Overload retVal="null" descr="" >
+			<Param name="string name" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="GetVehiclesForcedRespawnHeight" func="yes">
+		<Overload retVal="float" descr="This function returns the forced Height of any Vehicle when it is respawned.
+		Return value:float height - the height" >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="SetVehiclesForcedRespawnHeight" func="yes">
+		<Overload retVal="null" descr="This function will set the vehicles forced respawn height in the game.
+		float height - the height" >
+			<Param name="float height" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="FindPlayer" func="yes">
+		<Overload retVal="CPlayer/null" descr="Retrieve a player object from player's name or ID.
+		string name/int ID - The player's name or ID." >
+			<Param name="string name or int ID" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="NewTimer" func="yes">
+		<Overload retVal="CTimer" descr="This function will trigger any function after an interval
+		string funcName - the function to call when the timer ends (in a string format)
+float/int time - the time before the function call
+int numberOfTimesRepeat - how many times to repeat the process (1 just to execute once, 0 to repeat indefinitely)
+... - function (func) parameters" >
+			<Param name="string funcName" />
+			<Param name="float/int interval" />
+			<Param name="int numberOfTimesRepeat" />
+			<Param name="..."/>
+		</Overload>
+	</KeyWord>
+	<KeyWord name="InPoly" func="yes">
+		<Overload retVal="bool" descr="InPoly tests if a point lies within a polygon consisting of at least three and up to 128 points. 
+		If the given point is inside the polygon, the function returns true. If not, it returns false. 
+		If the points given do not form a valid polygon, the function throws an error.
+This function only uses two-dimensional space. Passing z-coordinates will return undesired output.
+float testX - the X-coordinate for the test point
+float testY - the Y-coordinate for the test point
+float x1, y1, ... - the coordinates of the points of the polygon" >
+			<Param name="float testX" />
+			<Param name="float testY" />
+			<Param name="float x1" />
+			<Param name="float y1" />
+			<Param name="float x2" />
+			<Param name="float y2" />
+			<Param name="float x3" />
+			<Param name="float y3" />
+			<Param name="..." />
+		</Overload>
+		<Overload retVal="bool" descr="InPoly tests if a point lies within a polygon
+		float testX - the X-coordinate for the test point
+float testY - the Y-coordinate for the test point
+string points - &quot;x1, y1, ...&quot; - a string of comma-separated coordinates for the points of the polygon.
+Passing non-numeric values for the coordinates will not fail, but will produce garbage output." >
+			<Param name="float testX" />
+			<Param name="float testY" />
+			<Param name="string points" />
+		</Overload>
+		<Overload retVal="bool" descr="InPoly tests if a point lies within a polygon
+		float testX - the X-coordinate for the test point
+float testY - the Y-coordinate for the test point
+array points - [x1, y1, ...] - an array of coordinates for the points of the polygon" >
+			<Param name="float testX" />
+			<Param name="float testY" />
+			<Param name="array points" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="BindKey" func="yes">
+		<Overload retVal="int" descr="BindKey allows the server to be informed when a player presses a key or a combination of up to three keys.
+		bool onKeyDown - This is the bool for the key function to be called once the key is 'pressed' or 'released'
+int key - The primary key you bind it to, you can get the key codes from here
+int key2 - The second key that needs to be pressed for this bind, or zero if not needed.
+int key3 - The third key that needs to be pressed for this bind, or zero if not needed." >
+			<Param name="bool onKeyDown" />
+			<Param name="int key" />
+			<Param name="int key2" />
+			<Param name="int key3" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="UnbindKey" func="yes">
+		<Overload retVal="bool" descr="
+		int nKeybindId - The key (nKeybindId is the value returned by BindKey) you want to unbind" >
+			<Param name="int nKeybindId" />
+		</Overload>
+	</KeyWord>
+	<KeyWord name="UnbindAll" func="yes">
+		<Overload retVal="null" descr="This function removes all binded server keys." >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="WEP_FIST" />
+	<KeyWord name="WEP_BRASSKNUCKLES" />
+	<KeyWord name="WEP_SCREWDRIVER" />
+	<KeyWord name="WEP_GOLFCLUB" />
+	<KeyWord name="WEP_NIGHTSTICK" />
+	<KeyWord name="WEP_KNIFE" />
+	<KeyWord name="WEP_BASEBALLBAT" />
+	<KeyWord name="WEP_HAMMER" />
+	<KeyWord name="WEP_MEATCLEAVER" />
+	<KeyWord name="WEP_MACHETE" />
+	<KeyWord name="WEP_KATANA" />
+	<KeyWord name="WEP_CHAINSAW" />
+	<KeyWord name="WEP_GRENADE" />
+	<KeyWord name="WEP_REMOTE" />
+	<KeyWord name="WEP_TEARGAS" />
+	<KeyWord name="WEP_MOLOTOV" />
+	<KeyWord name="WEP_ROCKET" />
+	<KeyWord name="WEP_COLT" />
+	<KeyWord name="WEP_COLT45" />
+	<KeyWord name="WEP_PYTHON" />
+	<KeyWord name="WEP_SHOTGUN" />
+	<KeyWord name="WEP_SPAZ" />
+	<KeyWord name="WEP_SPAS12" />
+	<KeyWord name="WEP_STUBBY" />
+	<KeyWord name="WEP_TEC9" />
+	<KeyWord name="WEP_UZI" />
+	<KeyWord name="WEP_INGRAM" />
+	<KeyWord name="WEP_MP5" />
+	<KeyWord name="WEP_M4" />
+	<KeyWord name="WEP_RUGER" />
+	<KeyWord name="WEP_SNIPER" />
+	<KeyWord name="WEP_LASERSCOPE" />
+	<KeyWord name="WEP_ROCKETLAUNCHER" />
+	<KeyWord name="WEP_RPG" />
+	<KeyWord name="WEP_FLAMETHROWER" />
+	<KeyWord name="WEP_M60" />
+	<KeyWord name="WEP_MINIGUN" />
+
+	<KeyWord name="WEP_BOMB" />
+	<KeyWord name="WEP_HELICANNON" />
+	<KeyWord name="WEP_CAMERA" />
+	<KeyWord name="WEP_VEHICLE" />
+	<KeyWord name="WEP_DRIVEBY" />
+	<KeyWord name="WEP_DROWNED" />
+	<KeyWord name="WEP_FALL" />
+	<KeyWord name="WEP_EXPLOSION" />
+	<KeyWord name="WEP_SUICIDE" />
+
+	<KeyWord name="WEATHER_MOSTLYCLEAR" />
+	<KeyWord name="WEATHER_OVERCAST" />
+	<KeyWord name="WEATHER_THUNDERSTORM" />
+	<KeyWord name="WEATHER_STORM" />
+	<KeyWord name="WEATHER_STORMY" />
+	<KeyWord name="WEATHER_FOGGY" />
+	<KeyWord name="WEATHER_FOG" />
+	<KeyWord name="WEATHER_CLEAR" />
+	<KeyWord name="WEATHER_SUNNY" />
+	<KeyWord name="WEATHER_RAIN" />
+	<KeyWord name="WEATHER_RAINY" />
+	<KeyWord name="WEATHER_DARKCLOUDY" />
+	<KeyWord name="WEATHER_LIGHTCLOUDY" />
+	<KeyWord name="WEATHER_OVERCASTCLOUDY" />
+	<KeyWord name="WEATHER_BLACKCLOUDS" />
+
+	<KeyWord name="VEH_LANDSTALKER" />
+	<KeyWord name="VEH_IDAHO" />
+	<KeyWord name="VEH_STINGER" />
+	<KeyWord name="VEH_LINERUNNER" />
+	<KeyWord name="VEH_PERENNIAL" />
+	<KeyWord name="VEH_SENTINEL" />
+	<KeyWord name="VEH_RIO" />
+	<KeyWord name="VEH_FIRETRUCK" />
+	<KeyWord name="VEH_TRASHMASTER" />
+	<KeyWord name="VEH_STRETCH" />
+	<KeyWord name="VEH_MANANA" />
+	<KeyWord name="VEH_INFERNUS" />
+	<KeyWord name="VEH_VOODOO" />
+	<KeyWord name="VEH_PONY" />
+	<KeyWord name="VEH_MULE" />
+	<KeyWord name="VEH_CHEETAH" />
+	<KeyWord name="VEH_AMBULANCE" />
+	<KeyWord name="VEH_FBIWASHINGTON" />
+	<KeyWord name="VEH_MOONBEAM" />
+	<KeyWord name="VEH_ESPERANTO" />
+	<KeyWord name="VEH_TAXI" />
+	<KeyWord name="VEH_WASHINGTON" />
+	<KeyWord name="VEH_BOBCAT" />
+	<KeyWord name="VEH_MRWHOOPEE" />
+	<KeyWord name="VEH_BFINJECTION" />
+	<KeyWord name="VEH_HUNTER" />
+	<KeyWord name="VEH_POLICE" />
+	<KeyWord name="VEH_ENFORCER" />
+	<KeyWord name="VEH_SECURICAR" />
+	<KeyWord name="VEH_BANSHEE" />
+	<KeyWord name="VEH_PREDATOR" />
+	<KeyWord name="VEH_BUS" />
+	<KeyWord name="VEH_RHINO" />
+	<KeyWord name="VEH_BARRACKSOL" />
+	<KeyWord name="VEH_BARRACKS" />
+	<KeyWord name="VEH_CUBANHERMES" />
+	<KeyWord name="VEH_HELICOPTER" />
+	<KeyWord name="VEH_ANGEL" />
+	<KeyWord name="VEH_COACH" />
+	<KeyWord name="VEH_CABBIE" />
+	<KeyWord name="VEH_STALLION" />
+	<KeyWord name="VEH_RUMPO" />
+	<KeyWord name="VEH_RCBANDIT" />
+	<KeyWord name="VEH_HEARSE" />
+	<KeyWord name="VEH_PACKER" />
+	<KeyWord name="VEH_SENTINELXS" />
+	<KeyWord name="VEH_ADMIRAL" />
+	<KeyWord name="VEH_SQUALO" />
+	<KeyWord name="VEH_SEASPARROW" />
+	<KeyWord name="VEH_PIZZABOY" />
+	<KeyWord name="VEH_GANGBURRITO" />
+	<KeyWord name="VEH_AIRTRAIN" />
+	<KeyWord name="VEH_DEADDODO" />
+	<KeyWord name="VEH_SPEEDER" />
+	<KeyWord name="VEH_REEFER" />
+	<KeyWord name="VEH_TROPIC" />
+	<KeyWord name="VEH_FLATBED" />
+	<KeyWord name="VEH_YANKEE" />
+	<KeyWord name="VEH_CADDY" />
+	<KeyWord name="VEH_ZEBRA" />
+	<KeyWord name="VEH_ZEBRACAB" />
+	<KeyWord name="VEH_TOPFUN" />
+	<KeyWord name="VEH_SKIMMER" />
+	<KeyWord name="VEH_PCJ600" />
+	<KeyWord name="VEH_PCJ" />
+	<KeyWord name="VEH_FAGGIO" />
+	<KeyWord name="VEH_FREEWAY" />
+	<KeyWord name="VEH_RCBARON" />
+	<KeyWord name="VEH_RCRAIDER" />
+	<KeyWord name="VEH_GLENDALE" />
+	<KeyWord name="VEH_OCEANIC" />
+	<KeyWord name="VEH_SANCHEZ" />
+	<KeyWord name="VEH_SPARROW" />
+	<KeyWord name="VEH_PATRIOT" />
+	<KeyWord name="VEH_LOVEFIST" />
+	<KeyWord name="VEH_COASTGUARD" />
+	<KeyWord name="VEH_DINGHY" />
+	<KeyWord name="VEH_HERMES" />
+	<KeyWord name="VEH_SABRE" />
+	<KeyWord name="VEH_SABRETURBO" />
+	<KeyWord name="VEH_PHOENIX" />
+	<KeyWord name="VEH_WALTON" />
+	<KeyWord name="VEH_REGINA" />
+	<KeyWord name="VEH_COMET" />
+	<KeyWord name="VEH_DELUXO" />
+	<KeyWord name="VEH_BURRITO" />
+	<KeyWord name="VEH_SPANDEX" />
+	<KeyWord name="VEH_SPANDEXPRESS" />
+	<KeyWord name="VEH_MARQUIS" />
+	<KeyWord name="VEH_BAGGAGE" />
+	<KeyWord name="VEH_BAGGAGEHANDLER" />
+	<KeyWord name="VEH_KAUFMAN" />
+	<KeyWord name="VEH_KAUFMANCAB" />
+	<KeyWord name="VEH_MAVERICK" />
+	<KeyWord name="VEH_VCNMAVERICK" />
+	<KeyWord name="VEH_RANCHER" />
+	<KeyWord name="VEH_FBIRANCHER" />
+	<KeyWord name="VEH_VIRGO" />
+	<KeyWord name="VEH_GREENWOOD" />
+	<KeyWord name="VEH_CUBANJETMAX" />
+	<KeyWord name="VEH_HOTRING1" />
+	<KeyWord name="VEH_HOTRINGRACER1" />
+	<KeyWord name="VEH_SANDKING" />
+	<KeyWord name="VEH_BLISTA" />
+	<KeyWord name="VEH_BLISTAC" />
+	<KeyWord name="VEH_BLISTACOMPACT" />
+	<KeyWord name="VEH_COMPACT" />
+	<KeyWord name="VEH_POLICEMAV" />
+	<KeyWord name="VEH_POLICEMAVERICK" />
+	<KeyWord name="VEH_BOXVILLE" />
+	<KeyWord name="VEH_BENSON" />
+	<KeyWord name="VEH_MESA" />
+	<KeyWord name="VEH_MESAGRANDE" />
+	<KeyWord name="VEH_RCGOBLIN" />
+	<KeyWord name="VEH_HOTRING2" />
+	<KeyWord name="VEH_HOTRINGRACER2" />
+	<KeyWord name="VEH_HOTRING3" />
+	<KeyWord name="VEH_HOTRINGRACER3" />
+	<KeyWord name="VEH_BLOODRING1" />
+	<KeyWord name="VEH_BLOODRINGBANGER1" />
+	<KeyWord name="VEH_BLOODRING2" />
+	<KeyWord name="VEH_BLOODRINGBANGER2" />
+	<KeyWord name="VEH_VICECHEE" />
+	<KeyWord name="VEH_POLICECHEETAH" />
+	<KeyWord name="VEH_FBICHEETAH" />
+	<KeyWord name="VEH_CHEETAH2" />
+
+	<KeyWord name="UPDATE_PLAYER_ONFOOT" />
+	<KeyWord name="UPDATE_PLAYER_FOOT" />
+	<KeyWord name="UPDATE_PLAYER_AIM" />
+	<KeyWord name="UPDATE_PLAYER_DRIVER" />
+	<KeyWord name="UPDATE_PLAYER_PASSENGER" />
+
+	<KeyWord name="UPDATE_VEHICLE_DRIVER" />
+	<KeyWord name="UPDATE_VEHICLE_OTHER" />
+
+	<KeyWord name="BODYPART_BODY" />
+	<KeyWord name="BODYPART_TORSO" />
+	<KeyWord name="BODYPART_LEFTARM" />
+	<KeyWord name="BODYPART_LARM" />
+	<KeyWord name="BODYPART_RIGHTARM" />
+	<KeyWord name="BODYPART_RARM" />
+	<KeyWord name="BODYPART_LEFTLEG" />
+	<KeyWord name="BODYPART_LLEG" />
+	<KeyWord name="BODYPART_RIGHTLEG" />
+	<KeyWord name="BODYPART_RLEG" />
+	<KeyWord name="BODYPART_HEAD" />
+
+	<KeyWord name="PARTREASON_QUIT" />
+	<KeyWord name="PARTREASON_DISCONNECTED" />
+	<KeyWord name="PARTREASON_TIMEOUT" />
+	<KeyWord name="PARTREASON_KICKEDBANNED" />
+	<KeyWord name="PARTREASON_KICKED" />
+	<KeyWord name="PARTREASON_BANNED" />
+	<KeyWord name="PARTREASON_CRASHED" />
+
+	<KeyWord name="KEY_ONFOOT_FORWARD" />
+	<KeyWord name="KEY_ONFOOT_BACKWARD" />
+	<KeyWord name="KEY_ONFOOT_LEFT" />
+	<KeyWord name="KEY_ONFOOT_RIGHT" />
+	<KeyWord name="KEY_ONFOOT_JUMP" />
+	<KeyWord name="KEY_ONFOOT_SPRINT" />
+	<KeyWord name="KEY_ONFOOT_FIRE" />
+	<KeyWord name="KEY_ONFOOT_CROUCH" />
+	<KeyWord name="KEY_ONFOOT_PUNCH" />
+	<KeyWord name="KEY_ONFOOT_NEXTWEP" />
+	<KeyWord name="KEY_ONFOOT_PREVWEP" />
+	<KeyWord name="KEY_ONFOOT_AIM" />
+
+	<KeyWord name="KEY_INCAR_LEFT" />
+	<KeyWord name="KEY_INCAR_RIGHT" />
+	<KeyWord name="KEY_INCAR_BACKWARD" />
+	<KeyWord name="KEY_INCAR_FORWARD" />
+	<KeyWord name="KEY_INCAR_HORN" />
+	<KeyWord name="KEY_INCAR_LEANUP" />
+	<KeyWord name="KEY_INCAR_LEANDOWN" />
+	<KeyWord name="KEY_INCAR_LOOKLEFT" />
+	<KeyWord name="KEY_INCAR_LOOKRIGHT" />
+
+	<!--KeyWord name="SQUIRREL_VERSION" /-->
+	<KeyWord name="onServerStart(){
+	
+}" func="yes"/>
+
+	<KeyWord name="onServerStop(){
+	
+}" func="yes"/>
+	<KeyWord name="onScriptLoad(){
+	
+}" func="yes"/>
+	<KeyWord name="onScriptUnload(){
+	
+}" func="yes"/>
+	<KeyWord name="onTimeChange(oldHour,oldMin,newHour,newMin){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerJoin(player){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerPart(player,reason){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerRequestClass(player){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerRequestSpawn(player){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerSpawn(player){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerDeath(player,reason){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerTeamKill(killer,player,reason,bodypart){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerKill(killer,player,reason,bodypart){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerEnteringVehicle(player,vehicle,door){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerEnterVehicle(player,vehicle,door){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerExitVehicle(player,vehicle){
+	
+}" func="yes"/>
+	<KeyWord name="onPickupClaimPicked(player,pickup){
+	
+}" func="yes"/>
+	<KeyWord name="onPickupPickedUp(player,pickup){
+	
+}" func="yes"/>
+	<KeyWord name="onPickupRespawn(pickup){
+	
+}" func="yes"/>
+	<KeyWord name="onPickupPickedUp(player,pickup){
+	
+}" func="yes"/>
+	<KeyWord name="onVehicleExplode(vehicle){
+	
+}" func="yes"/>
+	<KeyWord name="onVehicleRespawn(vehicle){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerChat(player,message){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerPM(player,target,text){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerBeginTyping(player){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerEndTyping(player){
+	
+}" func="yes"/>
+	<KeyWord name="onLoginAttempt(playerName,password,ipAddress){
+	
+}" func="yes"/>
+	<KeyWord name="onClientScriptData(player){
+	
+}" func="yes"/>
+	<KeyWord name="onVehicleHealthChange(vehicle,oldHealth,newHealth){
+	
+}" func="yes"/>
+	<KeyWord name="onVehicleMove(vehicle,lastX,lastY,lastZ,newX,newY,newZ){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerMove(player,lastX,lastY,lastZ,newX,newY,newZ){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerHealthChange(player,oldHealth,newHealth){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerArmourChange(player,lastArmour,newArmour){
+	
+}" func="yes"/>
+	<KeyWord name="onPlayerWeaponChange(player,oldWep,newWep){
+
+}" func="yes"/>
+	<KeyWord name="onObjectShot(object,player,weapon){
+
+}" func="yes"/>
+	<KeyWord name="onObjectBump(object,player){
+
+}" func="yes"/>
+	<KeyWord name="onKeyDown(player,bindID){
+
+}" func="yes"/>
+	<KeyWord name="onKeyUp(player,bindID){
+
+}" func="yes"/>
+	<KeyWord name="onPlayerAwayChange(player,newStatus){
+
+}" func="yes"/>
+	<KeyWord name="onPlayerSpectate(player,target){
+
+}" func="yes"/>
+	<KeyWord name="onPlayerCrashDump(player,crashReport){
+
+}" func="yes"/>
+	<KeyWord name="onPlayerModuleList(player,moduleList){
+
+}" func="yes"/>
+	<KeyWord name="onPlayerNameChange(player,oldName,newName){
+
+}" func="yes"/>
+	<KeyWord name="onPlayerActionChange(player,oldAction,newAction){
+
+}" func="yes"/>
+	<KeyWord name="onPlayerStateChange(player,oldState,newState){
+
+}" func="yes"/>
+	<KeyWord name="onPlayerOnFireChange(player,isOnFireNow){
+
+}" func="yes"/>
+	<KeyWord name="onPlayerCrouchChange(player,isCrouchingNow){
+
+}" func="yes"/>
+	<KeyWord name="onPlayerGameKeysChange(player,oldKeys,newKeys){
+
+}" func="yes"/>
+	<KeyWord name="onCheckpointEntered(player,checkpoint){
+
+}" func="yes"/>
+	<KeyWord name="onCheckpointExited(player,checkpoint){
+
+}" func="yes"/>
+	<KeyWord name="Vector" func="yes">
+		<Overload retVal="" descr="" >
+			<Param name="float x" />
+			<Param name="float y" />
+			<Param name="float z" />
+		</Overload>
+		<Overload retVal="" descr="" >
+			<Param name="int x" />
+			<Param name="int y" />
+			<Param name="int z" />
+		</Overload>
+		<Overload retVal="" descr="" >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="Quaternion" func="yes">
+		<Overload retVal="" descr="" >
+			<Param name="float x" />
+			<Param name="float y" />
+			<Param name="float z" />
+			<Param name="float w" />
+		</Overload>
+		<Overload retVal="" descr="" >
+			<Param name="int x" />
+			<Param name="int y" />
+			<Param name="int z" />
+			<Param name="int w" />
+		</Overload>
+		<Overload retVal="" descr="" >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="Bounds" func="yes">
+		<Overload retVal="" descr="" >
+			<Param name="float maxX" />
+			<Param name="float minX" />
+			<Param name="float maxY" />
+			<Param name="float minY" />
+		</Overload>
+		<Overload retVal="" descr="" >
+			<Param name="int maxX" />
+			<Param name="int minX" />
+			<Param name="int maxY" />
+			<Param name="int minY" />
+		</Overload>
+		<Overload retVal="" descr="" >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="RGB" func="yes">
+		<Overload retVal="" descr="" >
+			<Param name="int r" />
+			<Param name="int g" />
+			<Param name="int b" />
+		</Overload>
+		<Overload retVal="" descr="" >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="RGBA" func="yes">
+		<Overload retVal="" descr="" >
+			<Param name="int r" />
+			<Param name="int g" />
+			<Param name="int b" />
+			<Param name="int a" />
+		</Overload>
+		<Overload retVal="" descr="" >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="ARGB" func="yes">
+		<Overload retVal="" descr="" >
+			<Param name="int a" />
+			<Param name="int r" />
+			<Param name="int g" />
+			<Param name="int b" />
+		</Overload>
+		<Overload retVal="" descr="" >
+		</Overload>
+	</KeyWord>
+	<KeyWord name="WastedSettings" func="yes">
+		<Overload retVal="" descr="" >
+			<Param name="int deathTime" />
+			<Param name="int fadeTime" />
+			<Param name="float fadeInSpeed" />
+			<Param name="float fadeOutSpeed" />
+			<Param name="CRGB fadeColour" />
+			<Param name="int corpseFadeDelay" />
+			<Param name="int corpseFadeTime" />
+		</Overload>
+		<Overload retVal="" descr="" >
+		</Overload>
+	</KeyWord>
+	
+	</AutoComplete>
+</NotepadPlus>
